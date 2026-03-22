@@ -1,0 +1,638 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  FACULTY
+  ADMIN
+}
+
+enum SubmissionStatus {
+  SUBMITTED
+  NOT_SUBMITTED
+}
+
+enum AttendanceStatus {
+  PRESENT
+  ABSENT
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum BloomLevel {
+  REMEMBER
+  UNDERSTAND
+  APPLY
+  ANALYZE
+  EVALUATE
+  CREATE
+}
+
+enum QuestionType {
+  MCQ
+  SHORT_ANSWER
+  DESCRIPTIVE
+}
+
+enum ExamType {
+  INTERNAL
+  MOCK
+  PRACTICE
+}
+
+enum PaperStatus {
+  DRAFT
+  LOCKED
+}
+
+model User {
+  id           String   @id @default(uuid())
+  role         Role
+  password     String   // Stores hashed password
+  isRegistered Boolean  @default(false)
+  isFirstLogin Boolean  @default(true) // Track if password has been set
+  email        String   @unique
+  student      Student?
+  faculty      Faculty?
+  notifications Notification[]
+  createdQuestionPapers QuestionPaper[] @relation("QuestionPaperCreatedBy")
+  paperGenerationLogs   PaperGenerationLog[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Student {
+  id                          String                  @id @default(uuid())
+  usn                         String                  @unique // registration_number
+  registrationNumber          String?                 @unique
+  fullName                    String
+  gender                      String?
+  dateOfBirth                 DateTime?
+  branch                      String
+  semester                    Int
+  section                     String
+  email                       String                  @unique
+  phone                       String?
+  address                     String?
+  bloodGroup                  String?
+  profilePhotoUrl             String?
+  
+  // Parent Information
+  fatherName                  String?
+  fatherPhone                 String?
+  fatherEmail                 String?
+  motherName                  String?
+  motherPhone                 String?
+  motherEmail                 String?
+  guardianName                String?
+  guardianPhone               String?
+
+  admissionYear               Int?
+  overallAttendancePercentage Float                   @default(0)
+  overallGpa                  Float                   @default(0)
+  riskFlag                    Boolean                 @default(false)
+  
+  // Profile Extensions
+  bio                         String?                 
+  interests                   String?                 
+  skills                      String?                 // Comma separated or JSON string
+  
+  user                        User                    @relation(fields: [userId], references: [id])
+  userId                      String                  @unique
+  attendance                  Attendance[]
+  evaluations                 Evaluation[]
+  submissions                 AssignmentSubmission[]
+  doubts                      Doubt[]
+  profile                     StudentProfile?
+  mockTests                   MockTestResult[]
+  topicAnalytics              StudentTopicAnalytics[]
+  memories                    StudentMemory[]
+  studyPlans                  StudyPlan[]
+  generatedPapers             GeneratedPaper[]
+  topicPerformances           StudentTopicPerformance[]
+  questionAttempts            StudentQuestionAttempt[]
+  questionPapers              QuestionPaper[]
+  createdAt                   DateTime                @default(now())
+  updatedAt                   DateTime                @updatedAt
+}
+
+model Doubt {
+  id          String   @id @default(uuid())
+  student     Student  @relation(fields: [studentId], references: [id])
+  studentId   String
+  subject     String
+  topic       String
+  question    String
+  answer      String?
+  isWeakTopic Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model StudentProfile {
+  id                     String   @id @default(uuid())
+  student                Student  @relation(fields: [studentId], references: [id])
+  studentId              String   @unique
+  strongSubjects         String   // JSON string of subjects
+  weakSubjects           String   // JSON string of subjects
+  attendanceRiskSubjects String   // JSON string of subjects
+  topWeakTopics          String   // JSON string of topics
+  preferredLearningStyle String   @default("Theoretical")
+  avgMarks               Float    @default(0)
+  totalDoubtsSolved      Int      @default(0)
+  dailyStudyHours        Int      @default(2)
+  lastUpdated            DateTime @default(now())
+}
+
+model Exam {
+  id        String   @id @default(uuid())
+  subject   Subject  @relation(fields: [subjectId], references: [id])
+  subjectId String
+  title     String
+  date      DateTime
+  type      String   // Internal, Final, Lab
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MockTestResult {
+  id                String   @id @default(uuid())
+  student           Student  @relation(fields: [studentId], references: [id])
+  studentId         String
+  subject           String
+  topic             String
+  score             Float
+  totalQuestions    Int
+  incorrectCount    Int
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model StudentTopicAnalytics {
+  id          String   @id @default(uuid())
+  student     Student  @relation(fields: [studentId], references: [id])
+  studentId   String
+  subject     String
+  topic       String
+  score       Float
+  isWeak      Boolean  @default(false)
+  doubtCount  Int      @default(0)
+  incorrectMock Int    @default(0)
+  lastUpdated DateTime @default(now())
+
+  @@unique([studentId, subject, topic])
+}
+
+
+
+model Faculty {
+  id              String           @id @default(uuid())
+  facultyId       String           @unique
+  fullName        String
+  department      String
+  designation     String
+  email           String           @unique
+  phone           String?
+  address         String?
+  profilePhotoUrl String?
+  experienceYears Int?             @default(0)
+  
+  // Profile Extensions
+  bio             String?
+  interests       String?
+  skills          String?
+  dateOfBirth     DateTime?
+  
+  user            User             @relation(fields: [userId], references: [id])
+  userId          String           @unique
+  facultySubjects FacultySubject[]
+  evaluations     Evaluation[]
+  attendance      Attendance[]
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+}
+
+model Subject {
+  id              String           @id @default(uuid())
+  subjectName     String
+  subjectCode     String           @unique
+  semester        Int
+  branch          String
+  facultySubjects FacultySubject[]
+  attendance      Attendance[]
+  evaluations     Evaluation[]
+  assignments     Assignment[]
+  exams           Exam[]
+  questions       Question[]
+  topicPerformances StudentTopicPerformance[]
+  questionPapers  QuestionPaper[]
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+}
+
+model FacultySubject {
+  id        String  @id @default(uuid())
+  faculty   Faculty @relation(fields: [facultyId], references: [id])
+  facultyId String
+  subject   Subject @relation(fields: [subjectId], references: [id])
+  subjectId String
+  section   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([facultyId, subjectId, section])
+}
+
+model Attendance {
+  id               String           @id @default(uuid())
+  student          Student          @relation(fields: [studentId], references: [id])
+  studentId        String
+  subject          Subject          @relation(fields: [subjectId], references: [id])
+  subjectId        String
+  faculty          Faculty?         @relation(fields: [facultyId], references: [id])
+  facultyId        String?
+  semester         Int              @default(1)
+  date             DateTime
+  status           AttendanceStatus
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  @@unique([studentId, subjectId, date])
+}
+
+model Evaluation {
+  id                    String   @id @default(uuid())
+  student               Student  @relation(fields: [studentId], references: [id])
+  studentId             String
+  subject               Subject  @relation(fields: [subjectId], references: [id])
+  subjectId             String
+  faculty               Faculty  @relation(fields: [facultyId], references: [id])
+  facultyId             String
+  semester              Int
+
+  ia1Marks              Float    @default(0) // 0-25
+  ia2Marks              Float    @default(0) // 0-25
+  assignmentMarks       Float    @default(0) // 0-10
+  quizMarks             Float    @default(0) // 0-10
+  demoMarks             Float    @default(0) // 0-15
+  vivaMarks             Float    @default(0) // 0-10
+  miniProjectMarks      Float    @default(0) // 0-15
+  projectReviewMarks    Float    @default(0) // 0-10
+  
+  totalMarks            Float    @default(0)
+  grade                 String?
+  remarks               String?
+  evaluationDate        DateTime @default(now())
+
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  @@unique([studentId, subjectId])
+}
+
+model PasswordSetupToken {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  email     String
+  role      Role
+  expiresAt DateTime
+  isUsed    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Assignment {
+  id          String                 @id @default(uuid())
+  subject     Subject                @relation(fields: [subjectId], references: [id])
+  subjectId   String
+  title       String
+  dueDate     DateTime
+  submissions AssignmentSubmission[]
+  createdAt   DateTime               @default(now())
+  updatedAt   DateTime               @updatedAt
+}
+
+model AssignmentSubmission {
+  id               String           @id @default(uuid())
+  assignment       Assignment       @relation(fields: [assignmentId], references: [id])
+  assignmentId     String
+  student          Student          @relation(fields: [studentId], references: [id])
+  studentId        String
+  submissionStatus SubmissionStatus @default(NOT_SUBMITTED)
+  marksAwarded     Float?
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  @@unique([assignmentId, studentId])
+}
+
+model PreRegisteredStudent {
+  id            String    @id @default(uuid())
+  usn           String    @unique
+  fullName      String
+  email         String    @unique
+  phone         String?
+  branch        String
+  semester      Int
+  section       String?
+  batch         String?
+  admissionYear Int?
+  isRegistered  Boolean   @default(false)
+  userId        String?   @unique
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model PreRegisteredFaculty {
+  id            String    @id @default(uuid())
+  facultyId     String    @unique
+  fullName      String
+  email         String    @unique
+  phone         String?
+  department    String
+  designation   String
+  specialization String?
+  isRegistered  Boolean   @default(false)
+  userId        String?   @unique
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model DocumentChunk {
+  id          String   @id @default(uuid())
+  content     String
+  embedding   String   // Store as JSON stringified array for SQLite/PG compatibility
+  subject     String
+  unit        String?
+  topic       String?
+  sourceType  String
+  fileName    String
+  metadata    String?  
+  createdAt   DateTime @default(now())
+
+  @@index([subject, sourceType])
+  @@index([fileName, subject])
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  type      String
+  message   String
+  isRead    Boolean  @default(false)
+  metadata  String?  // JSON string
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum AnnouncementPriority {
+  LOW
+  NORMAL
+  HIGH
+  CRITICAL
+}
+
+enum AnnouncementCategory {
+  GENERAL
+  ACADEMIC
+  ADMINISTRATIVE
+  EMERGENCY
+}
+
+model Announcement {
+  id          String               @id @default(uuid())
+  title       String
+  content     String
+  targetBatch String               @default("All")
+  priority    AnnouncementPriority @default(NORMAL)
+  category    AnnouncementCategory @default(GENERAL)
+  postedBy    String
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+}
+
+model AcademicCalendar {
+  id          String   @id @default(uuid())
+  event       String   // Title
+  description String?
+  startDate   DateTime
+  endDate     DateTime?
+  type        String   // Category: Exam, Holiday, etc.
+  semester    Int?     // Optional: specific semester
+  department  String?  // Optional: specific branch/dept
+  postedBy    String?  @default("SYSTEM")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model StudentMemory {
+  id        String   @id @default(uuid())
+  student   Student  @relation(fields: [studentId], references: [id])
+  studentId String
+  topic     String
+  summary   String
+  timestamp DateTime @default(now())
+
+  @@index([studentId])
+}
+
+model GeneratedPaper {
+  id                  String   @id @default(uuid())
+  student             Student  @relation(fields: [studentId], references: [id])
+  studentId           String
+  subjectCode         String
+  subjectTitle        String?
+  unit                String
+  semester            String?
+  questions           String   // JSON string
+  maxMarks            Int?
+  totalTime           Int?
+  questionCount       Int?
+  difficulty          String?
+  performanceSnapshot String?  // JSON string
+  difficultyProfile   String?  // JSON string
+  generationMode      String   @default("adaptive")
+  contentHash         String?
+  createdAt           DateTime @default(now())
+
+  @@index([studentId, subjectCode, unit])
+}
+
+model StudyPlan {
+  id          String   @id @default(uuid())
+  student     Student  @relation(fields: [studentId], references: [id])
+  studentId   String
+  plan        String   // JSON string
+  startDate   DateTime @default(now())
+  endDate     DateTime
+  generatedAt DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Adaptive Assessment Engine — Production-grade, DB-backed
+// ─────────────────────────────────────────────────────────────────────────────
+
+model Question {
+  id           String       @id @default(uuid())
+  subject      Subject      @relation(fields: [subjectId], references: [id])
+  subjectId    String
+  unit         String
+  topic        String
+  questionText String
+  questionType QuestionType
+  difficulty   Difficulty
+  bloomLevel   BloomLevel
+  marks        Int
+
+  // MCQ support (optional)
+  optionsJson  String?      // JSON string: ["A", "B", ...]
+  answerKey    String?      // e.g. "B" or free-text; keep simple
+
+  timesUsed    Int          @default(0)
+  lastUsedAt   DateTime?
+  isActive     Boolean      @default(true)
+
+  paperItems   QuestionPaperItem[]
+  attempts     StudentQuestionAttempt[]
+
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  @@index([subjectId, unit])
+  @@index([subjectId, topic])
+  @@index([subjectId, difficulty])
+  @@index([subjectId, bloomLevel])
+  @@index([subjectId, marks])
+}
+
+model StudentTopicPerformance {
+  id                   String   @id @default(uuid())
+  student              Student  @relation(fields: [studentId], references: [id])
+  studentId             String
+  subject              Subject  @relation(fields: [subjectId], references: [id])
+  subjectId            String
+  topic                String
+
+  accuracyPercentage   Float    @default(0)
+  weakFlag             Boolean  @default(false)
+  averageResponseTime  Float    @default(0) // seconds
+  attemptCount         Int      @default(0)
+  correctCount         Int      @default(0)
+
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  @@unique([studentId, subjectId, topic])
+  @@index([studentId, subjectId])
+  @@index([subjectId, topic])
+}
+
+model StudentQuestionAttempt {
+  id             String   @id @default(uuid())
+  student        Student  @relation(fields: [studentId], references: [id])
+  studentId      String
+  question       Question @relation(fields: [questionId], references: [id])
+  questionId     String
+
+  paper          QuestionPaper? @relation(fields: [paperId], references: [id])
+  paperId        String?
+
+  attemptedAt    DateTime @default(now())
+  isCorrect      Boolean?
+  responseTimeMs Int?
+
+  @@index([studentId, attemptedAt])
+  @@index([studentId, questionId])
+  @@index([questionId])
+}
+
+model QuestionPaper {
+  id               String      @id @default(uuid())
+  subject          Subject     @relation(fields: [subjectId], references: [id])
+  subjectId        String
+
+  createdByUser    User        @relation("QuestionPaperCreatedBy", fields: [createdByUserId], references: [id])
+  createdByUserId  String
+
+  // If linked to a student, this is a personalized/adaptive paper.
+  student          Student?    @relation(fields: [studentId], references: [id])
+  studentId        String?
+
+  examType         ExamType
+  adaptiveEnabled  Boolean     @default(false)
+  seed             String?
+
+  totalMarks       Int
+  status           PaperStatus @default(LOCKED)
+  lockedAt         DateTime?
+
+  // JSON profiles (for audit + reproducibility)
+  difficultyProfileJson String
+  bloomProfileJson      String
+  topicProfileJson      String?
+  constraintsJson       String?
+  contentHash           String?
+
+  items            QuestionPaperItem[]
+  generationLogs   PaperGenerationLog[]
+  attempts         StudentQuestionAttempt[]
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([subjectId, createdAt])
+  @@index([studentId, createdAt])
+}
+
+model QuestionPaperItem {
+  id         String       @id @default(uuid())
+  paper      QuestionPaper @relation(fields: [paperId], references: [id], onDelete: Cascade)
+  paperId    String
+  question   Question     @relation(fields: [questionId], references: [id])
+  questionId String
+
+  order      Int
+  marks      Int
+
+  createdAt  DateTime @default(now())
+
+  @@unique([paperId, questionId])
+  @@unique([paperId, order])
+  @@index([questionId])
+}
+
+model PaperGenerationLog {
+  id             String   @id @default(uuid())
+  paper          QuestionPaper? @relation(fields: [paperId], references: [id], onDelete: SetNull)
+  paperId        String?
+
+  actorUser      User     @relation(fields: [actorUserId], references: [id])
+  actorUserId    String
+
+  subjectId      String
+  examType       ExamType
+  adaptiveEnabled Boolean
+  seed           String?
+  requestMetaJson String? // JSON string: request + decisions
+
+  createdAt      DateTime @default(now())
+
+  @@index([actorUserId, createdAt])
+  @@index([subjectId, createdAt])
+}

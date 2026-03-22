@@ -1,0 +1,11 @@
+-- CreateTable
+CREATE TABLE "StudyPlan" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "studentId" TEXT NOT NULL,
+    "plan" TEXT NOT NULL,
+    "startDate" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "endDate" DATETIME NOT NULL,
+    "generatedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    CONSTRAINT "StudyPlan_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "Student" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);

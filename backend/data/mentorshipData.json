@@ -1,0 +1,495 @@
+{
+  "generated_at": "2026-03-18T07:17:01.470Z",
+  "records": [
+    {
+      "faculty_id": "AIML-FAC-001",
+      "faculty_name": "Dr. Priya Venkataraman",
+      "student_id": "1AB23AIML017",
+      "student_name": "Komal Desai",
+      "mentorship_start_date": "2026-01-14"
+    },
+    {
+      "faculty_id": "AIML-FAC-001",
+      "faculty_name": "Dr. Priya Venkataraman",
+      "student_id": "1AB23AIML006",
+      "student_name": "Bhavna Gupta",
+      "mentorship_start_date": "2026-01-04"
+    },
+    {
+      "faculty_id": "AIML-FAC-001",
+      "faculty_name": "Dr. Priya Venkataraman",
+      "student_id": "1AB23AIML032",
+      "student_name": "Sameer Malhotra",
+      "mentorship_start_date": "2026-01-05"
+    },
+    {
+      "faculty_id": "AIML-FAC-001",
+      "faculty_name": "Dr. Priya Venkataraman",
+      "student_id": "1AB23AIML039",
+      "student_name": "Tanvi Choudhury",
+      "mentorship_start_date": "2026-01-12"
+    },
+    {
+      "faculty_id": "AIML-FAC-001",
+      "faculty_name": "Dr. Priya Venkataraman",
+      "student_id": "1AB23AIML031",
+      "student_name": "Sakshi Chauhan",
+      "mentorship_start_date": "2026-01-06"
+    },
+    {
+      "faculty_id": "AIML-FAC-001",
+      "faculty_name": "Dr. Priya Venkataraman",
+      "student_id": "1AB23AIML024",
+      "student_name": "Pallavi Shukla",
+      "mentorship_start_date": "2026-01-13"
+    },
+    {
+      "faculty_id": "AIML-FAC-001",
+      "faculty_name": "Dr. Priya Venkataraman",
+      "student_id": "1AB23AIML038",
+      "student_name": "Swathi Narayanan",
+      "mentorship_start_date": "2026-01-02"
+    },
+    {
+      "faculty_id": "AIML-FAC-001",
+      "faculty_name": "Dr. Priya Venkataraman",
+      "student_id": "1AB23AIML010",
+      "student_name": "Esha Verma",
+      "mentorship_start_date": "2026-01-06"
+    },
+    {
+      "faculty_id": "AIML-FAC-002",
+      "faculty_name": "Dr. Ramesh Naidu",
+      "student_id": "1AB23AIML067",
+      "student_name": "Harishchandra Raju",
+      "mentorship_start_date": "2026-01-02"
+    },
+    {
+      "faculty_id": "AIML-FAC-002",
+      "faculty_name": "Dr. Ramesh Naidu",
+      "student_id": "1AB23AIML018",
+      "student_name": "Lakshmi Venkat",
+      "mentorship_start_date": "2026-01-03"
+    },
+    {
+      "faculty_id": "AIML-FAC-002",
+      "faculty_name": "Dr. Ramesh Naidu",
+      "student_id": "1AB23AIML044",
+      "student_name": "Vikrant Acharya",
+      "mentorship_start_date": "2026-01-03"
+    },
+    {
+      "faculty_id": "AIML-FAC-002",
+      "faculty_name": "Dr. Ramesh Naidu",
+      "student_id": "1AB23AIML041",
+      "student_name": "Usha Patil",
+      "mentorship_start_date": "2026-01-07"
+    },
+    {
+      "faculty_id": "AIML-FAC-002",
+      "faculty_name": "Dr. Ramesh Naidu",
+      "student_id": "1AB23AIML012",
+      "student_name": "Gayatri Pillai",
+      "mentorship_start_date": "2026-01-12"
+    },
+    {
+      "faculty_id": "AIML-FAC-002",
+      "faculty_name": "Dr. Ramesh Naidu",
+      "student_id": "1AB23AIML027",
+      "student_name": "Rahul Dubey",
+      "mentorship_start_date": "2026-01-05"
+    },
+    {
+      "faculty_id": "AIML-FAC-002",
+      "faculty_name": "Dr. Ramesh Naidu",
+      "student_id": "1AB23AIML007",
+      "student_name": "Chirag Joshi",
+      "mentorship_start_date": "2026-01-15"
+    },
+    {
+      "faculty_id": "AIML-FAC-002",
+      "faculty_name": "Dr. Ramesh Naidu",
+      "student_id": "1AB23AIML063",
+      "student_name": "Geetha Balachandran",
+      "mentorship_start_date": "2026-01-02"
+    },
+    {
+      "faculty_id": "AIML-FAC-003",
+      "faculty_name": "Prof. Kavitha Iyer",
+      "student_id": "1AB23AIML016",
+      "student_name": "Kabir Singh",
+      "mentorship_start_date": "2026-01-04"
+    },
+    {
+      "faculty_id": "AIML-FAC-003",
+      "faculty_name": "Prof. Kavitha Iyer",
+      "student_id": "1AB23AIML004",
+      "student_name": "Anjali Nair",
+      "mentorship_start_date": "2026-01-11"
+    },
+    {
+      "faculty_id": "AIML-FAC-003",
+      "faculty_name": "Prof. Kavitha Iyer",
+      "student_id": "1AB23AIML056",
+      "student_name": "Asha Ramachandran",
+      "mentorship_start_date": "2026-01-12"
+    },
+    {
+      "faculty_id": "AIML-FAC-003",
+      "faculty_name": "Prof. Kavitha Iyer",
+      "student_id": "1AB23AIML014",
+      "student_name": "Ishaan Bose",
+      "mentorship_start_date": "2026-01-03"
+    },
+    {
+      "faculty_id": "AIML-FAC-003",
+      "faculty_name": "Prof. Kavitha Iyer",
+      "student_id": "1AB23AIML058",
+      "student_name": "Balakrishna Rao",
+      "mentorship_start_date": "2026-01-02"
+    },
+    {
+      "faculty_id": "AIML-FAC-003",
+      "faculty_name": "Prof. Kavitha Iyer",
+      "student_id": "1AB23AIML070",
+      "student_name": "Jagadeesh Gowda",
+      "mentorship_start_date": "2026-01-10"
+    },
+    {
+      "faculty_id": "AIML-FAC-003",
+      "faculty_name": "Prof. Kavitha Iyer",
+      "student_id": "1AB23AIML035",
+      "student_name": "Sneha Bhatt",
+      "mentorship_start_date": "2026-01-12"
+    },
+    {
+      "faculty_id": "AIML-FAC-003",
+      "faculty_name": "Prof. Kavitha Iyer",
+      "student_id": "1AB23AIML065",
+      "student_name": "Gopal Krishnamurthy",
+      "mentorship_start_date": "2026-01-14"
+    },
+    {
+      "faculty_id": "AIML-FAC-004",
+      "faculty_name": "Dr. Suresh Pillai",
+      "student_id": "1AB23AIML059",
+      "student_name": "Bhaskar Nagarajan",
+      "mentorship_start_date": "2026-01-13"
+    },
+    {
+      "faculty_id": "AIML-FAC-004",
+      "faculty_name": "Dr. Suresh Pillai",
+      "student_id": "1AB23AIML034",
+      "student_name": "Siddharth Menon",
+      "mentorship_start_date": "2026-01-08"
+    },
+    {
+      "faculty_id": "AIML-FAC-004",
+      "faculty_name": "Dr. Suresh Pillai",
+      "student_id": "1AB23AIML003",
+      "student_name": "Akash Patel",
+      "mentorship_start_date": "2026-01-09"
+    },
+    {
+      "faculty_id": "AIML-FAC-004",
+      "faculty_name": "Dr. Suresh Pillai",
+      "student_id": "1AB23AIML061",
+      "student_name": "Chetan Mathur",
+      "mentorship_start_date": "2026-01-03"
+    },
+    {
+      "faculty_id": "AIML-FAC-004",
+      "faculty_name": "Dr. Suresh Pillai",
+      "student_id": "1AB23AIML009",
+      "student_name": "Dhruv Kapoor",
+      "mentorship_start_date": "2026-01-09"
+    },
+    {
+      "faculty_id": "AIML-FAC-004",
+      "faculty_name": "Dr. Suresh Pillai",
+      "student_id": "1AB23AIML013",
+      "student_name": "Harsh Tiwari",
+      "mentorship_start_date": "2026-01-04"
+    },
+    {
+      "faculty_id": "AIML-FAC-005",
+      "faculty_name": "Prof. Anitha Krishnan",
+      "student_id": "1AB23AIML020",
+      "student_name": "Megha Jain",
+      "mentorship_start_date": "2026-01-11"
+    },
+    {
+      "faculty_id": "AIML-FAC-005",
+      "faculty_name": "Prof. Anitha Krishnan",
+      "student_id": "1AB23AIML057",
+      "student_name": "Ashwin Balaji",
+      "mentorship_start_date": "2026-01-11"
+    },
+    {
+      "faculty_id": "AIML-FAC-005",
+      "faculty_name": "Prof. Anitha Krishnan",
+      "student_id": "1AB23AIML030",
+      "student_name": "Sagar Pandey",
+      "mentorship_start_date": "2026-01-12"
+    },
+    {
+      "faculty_id": "AIML-FAC-005",
+      "faculty_name": "Prof. Anitha Krishnan",
+      "student_id": "1AB23AIML028",
+      "student_name": "Riya Talwar",
+      "mentorship_start_date": "2026-01-11"
+    },
+    {
+      "faculty_id": "AIML-FAC-005",
+      "faculty_name": "Prof. Anitha Krishnan",
+      "student_id": "1AB23AIML049",
+      "student_name": "Zara Hussain",
+      "mentorship_start_date": "2026-01-04"
+    },
+    {
+      "faculty_id": "AIML-FAC-005",
+      "faculty_name": "Prof. Anitha Krishnan",
+      "student_id": "1AB23AIML033",
+      "student_name": "Shreya Fernandez",
+      "mentorship_start_date": "2026-01-02"
+    },
+    {
+      "faculty_id": "AIML-FAC-006",
+      "faculty_name": "Dr. Deepak Sharma",
+      "student_id": "1AB23AIML064",
+      "student_name": "Girish Menon",
+      "mentorship_start_date": "2026-01-07"
+    },
+    {
+      "faculty_id": "AIML-FAC-006",
+      "faculty_name": "Dr. Deepak Sharma",
+      "student_id": "1AB23AIML055",
+      "student_name": "Arvind Kumar",
+      "mentorship_start_date": "2026-01-09"
+    },
+    {
+      "faculty_id": "AIML-FAC-006",
+      "faculty_name": "Dr. Deepak Sharma",
+      "student_id": "1AB23AIML002",
+      "student_name": "Aditi Sharma",
+      "mentorship_start_date": "2026-01-14"
+    },
+    {
+      "faculty_id": "AIML-FAC-006",
+      "faculty_name": "Dr. Deepak Sharma",
+      "student_id": "1AB23AIML046",
+      "student_name": "Vishal Bhardwaj",
+      "mentorship_start_date": "2026-01-08"
+    },
+    {
+      "faculty_id": "AIML-FAC-006",
+      "faculty_name": "Dr. Deepak Sharma",
+      "student_id": "1AB23AIML005",
+      "student_name": "Arjun Reddy",
+      "mentorship_start_date": "2026-01-10"
+    },
+    {
+      "faculty_id": "AIML-FAC-007",
+      "faculty_name": "Prof. Meena Sundaram",
+      "student_id": "1AB23AIML062",
+      "student_name": "Divya Lakshmi",
+      "mentorship_start_date": "2026-01-02"
+    },
+    {
+      "faculty_id": "AIML-FAC-007",
+      "faculty_name": "Prof. Meena Sundaram",
+      "student_id": "1AB23AIML036",
+      "student_name": "Sourav Das",
+      "mentorship_start_date": "2026-01-14"
+    },
+    {
+      "faculty_id": "AIML-FAC-007",
+      "faculty_name": "Prof. Meena Sundaram",
+      "student_id": "1AB23AIML045",
+      "student_name": "Vinutha Rangaswamy",
+      "mentorship_start_date": "2026-01-08"
+    },
+    {
+      "faculty_id": "AIML-FAC-007",
+      "faculty_name": "Prof. Meena Sundaram",
+      "student_id": "1AB23AIML001",
+      "student_name": "Aarav Mehta",
+      "mentorship_start_date": "2026-01-02"
+    },
+    {
+      "faculty_id": "AIML-FAC-007",
+      "faculty_name": "Prof. Meena Sundaram",
+      "student_id": "1AB23AIML025",
+      "student_name": "Pranav Mishra",
+      "mentorship_start_date": "2026-01-02"
+    },
+    {
+      "faculty_id": "AIML-FAC-008",
+      "faculty_name": "Dr. Arun Chakraborty",
+      "student_id": "1AB23AIML019",
+      "student_name": "Manish Sinha",
+      "mentorship_start_date": "2026-01-07"
+    },
+    {
+      "faculty_id": "AIML-FAC-008",
+      "faculty_name": "Dr. Arun Chakraborty",
+      "student_id": "1AB23AIML047",
+      "student_name": "Yamini Sundaresan",
+      "mentorship_start_date": "2026-01-15"
+    },
+    {
+      "faculty_id": "AIML-FAC-008",
+      "faculty_name": "Dr. Arun Chakraborty",
+      "student_id": "1AB23AIML008",
+      "student_name": "Deepika Iyer",
+      "mentorship_start_date": "2026-01-05"
+    },
+    {
+      "faculty_id": "AIML-FAC-008",
+      "faculty_name": "Dr. Arun Chakraborty",
+      "student_id": "1AB23AIML043",
+      "student_name": "Vidya Subramaniam",
+      "mentorship_start_date": "2026-01-05"
+    },
+    {
+      "faculty_id": "AIML-FAC-008",
+      "faculty_name": "Dr. Arun Chakraborty",
+      "student_id": "1AB23AIML021",
+      "student_name": "Naman Aggarwal",
+      "mentorship_start_date": "2026-01-04"
+    },
+    {
+      "faculty_id": "AIML-FAC-008",
+      "faculty_name": "Dr. Arun Chakraborty",
+      "student_id": "1AB23AIML060",
+      "student_name": "Chandana Murthy",
+      "mentorship_start_date": "2026-01-13"
+    },
+    {
+      "faculty_id": "AIML-FAC-009",
+      "faculty_name": "Prof. Lavanya Mohan",
+      "student_id": "1AB23AIML029",
+      "student_name": "Rohan Nambiar",
+      "mentorship_start_date": "2026-01-03"
+    },
+    {
+      "faculty_id": "AIML-FAC-009",
+      "faculty_name": "Prof. Lavanya Mohan",
+      "student_id": "1AB23AIML051",
+      "student_name": "Aishwarya Gowda",
+      "mentorship_start_date": "2026-01-11"
+    },
+    {
+      "faculty_id": "AIML-FAC-009",
+      "faculty_name": "Prof. Lavanya Mohan",
+      "student_id": "1AB23AIML048",
+      "student_name": "Yash Goswami",
+      "mentorship_start_date": "2026-01-06"
+    },
+    {
+      "faculty_id": "AIML-FAC-009",
+      "faculty_name": "Prof. Lavanya Mohan",
+      "student_id": "1AB23AIML022",
+      "student_name": "Neha Rao",
+      "mentorship_start_date": "2026-01-14"
+    },
+    {
+      "faculty_id": "AIML-FAC-009",
+      "faculty_name": "Prof. Lavanya Mohan",
+      "student_id": "1AB23AIML053",
+      "student_name": "Aparna Chatterjee",
+      "mentorship_start_date": "2026-01-12"
+    },
+    {
+      "faculty_id": "AIML-FAC-009",
+      "faculty_name": "Prof. Lavanya Mohan",
+      "student_id": "1AB23AIML040",
+      "student_name": "Ujwal Hegde",
+      "mentorship_start_date": "2026-01-09"
+    },
+    {
+      "faculty_id": "AIML-FAC-010",
+      "faculty_name": "Dr. Vikram Patel",
+      "student_id": "1AB23AIML026",
+      "student_name": "Priya Banerjee",
+      "mentorship_start_date": "2026-01-14"
+    },
+    {
+      "faculty_id": "AIML-FAC-010",
+      "faculty_name": "Dr. Vikram Patel",
+      "student_id": "1AB23AIML011",
+      "student_name": "Farhan Khan",
+      "mentorship_start_date": "2026-01-02"
+    },
+    {
+      "faculty_id": "AIML-FAC-010",
+      "faculty_name": "Dr. Vikram Patel",
+      "student_id": "1AB23AIML037",
+      "student_name": "Subhash Varma",
+      "mentorship_start_date": "2026-01-15"
+    },
+    {
+      "faculty_id": "AIML-FAC-010",
+      "faculty_name": "Dr. Vikram Patel",
+      "student_id": "1AB23AIML023",
+      "student_name": "Nikhil Kulkarni",
+      "mentorship_start_date": "2026-01-14"
+    },
+    {
+      "faculty_id": "AIML-FAC-010",
+      "faculty_name": "Dr. Vikram Patel",
+      "student_id": "1AB23AIML042",
+      "student_name": "Varun Srivastava",
+      "mentorship_start_date": "2026-01-10"
+    },
+    {
+      "faculty_id": "AIML-FAC-010",
+      "faculty_name": "Dr. Vikram Patel",
+      "student_id": "1AB23AIML054",
+      "student_name": "Archana Devi",
+      "mentorship_start_date": "2026-01-08"
+    },
+    {
+      "faculty_id": "AIML-FAC-010",
+      "faculty_name": "Dr. Vikram Patel",
+      "student_id": "1AB23AIML050",
+      "student_name": "Abhishek Tripathi",
+      "mentorship_start_date": "2026-01-06"
+    },
+    {
+      "faculty_id": "AIML-FAC-011",
+      "faculty_name": "Prof. Nandini Reddy",
+      "student_id": "1AB23AIML069",
+      "student_name": "Indira Prasad",
+      "mentorship_start_date": "2026-01-05"
+    },
+    {
+      "faculty_id": "AIML-FAC-011",
+      "faculty_name": "Prof. Nandini Reddy",
+      "student_id": "1AB23AIML066",
+      "student_name": "Haritha Suresh",
+      "mentorship_start_date": "2026-01-08"
+    },
+    {
+      "faculty_id": "AIML-FAC-011",
+      "faculty_name": "Prof. Nandini Reddy",
+      "student_id": "1AB23AIML068",
+      "student_name": "Hemanth Kumar",
+      "mentorship_start_date": "2026-01-14"
+    },
+    {
+      "faculty_id": "AIML-FAC-011",
+      "faculty_name": "Prof. Nandini Reddy",
+      "student_id": "1AB23AIML052",
+      "student_name": "Amit Saxena",
+      "mentorship_start_date": "2026-01-06"
+    },
+    {
+      "faculty_id": "AIML-FAC-011",
+      "faculty_name": "Prof. Nandini Reddy",
+      "student_id": "1AB23AIML015",
+      "student_name": "Jyoti Krishnan",
+      "mentorship_start_date": "2026-01-14"
+    }
+  ]
+}

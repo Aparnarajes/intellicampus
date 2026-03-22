@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  # ── DATABASE LAYER ─────────────────────────────────────────────────────────
+  mongodb:
+    image: mongo:6.0
+    container_name: intellicampus_db
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  # ── AI INTELLIGENCE LAYER ───────────────────────────────────────────────────
+  ai-engine:
+    build: ./ai_services
+    container_name: intellicampus_ai
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - AI_PORT=8000
+    depends_on:
+      - mongodb
+
+  # ── BACKEND API LAYER ────────────────────────────────────────────────────────
+  api:
+    build: ./backend
+    container_name: intellicampus_api
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - JWT_SECRET=${JWT_SECRET}
+      - MONGODB_URI=mongodb://mongodb:27017/intellicampus
+      - DATABASE_URL=mongodb://mongodb:27017/intellicampus
+      - PYTHON_AI_SERVICE_URL=http://ai-engine:8000
+      - FRONTEND_URL=http://localhost:5173
+    depends_on:
+      - mongodb
+      - ai-engine
+
+  # ── FRONTEND PORTAL (DEVELOPMENT MODE SHORTHAND) ─────────────────────────────
+  client:
+    build: ./frontend
+    container_name: intellicampus_client
+    restart: always
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:5000
+    depends_on:
+      - api
+
+volumes:
+  mongo_data:

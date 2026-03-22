@@ -1,0 +1,146 @@
+{
+  "generated_at": "2026-03-18T07:17:01.480Z",
+  "total": 12,
+  "faculty": [
+    {
+      "faculty_id": "AIML-FAC-001",
+      "faculty_name": "Dr. Priya Venkataraman",
+      "designation": "Associate Professor",
+      "department": "Artificial Intelligence & Machine Learning",
+      "email": "priya.venkataraman@aiml.edu",
+      "phone": "9876543201",
+      "subjects_taught": [
+        "Machine Learning",
+        "Deep Learning"
+      ]
+    },
+    {
+      "faculty_id": "AIML-FAC-002",
+      "faculty_name": "Dr. Ramesh Naidu",
+      "designation": "Associate Professor",
+      "department": "Artificial Intelligence & Machine Learning",
+      "email": "ramesh.naidu@aiml.edu",
+      "phone": "9876543202",
+      "subjects_taught": [
+        "Data Mining",
+        "Artificial Intelligence"
+      ]
+    },
+    {
+      "faculty_id": "AIML-FAC-003",
+      "faculty_name": "Prof. Kavitha Iyer",
+      "designation": "Assistant Professor",
+      "department": "Artificial Intelligence & Machine Learning",
+      "email": "kavitha.iyer@aiml.edu",
+      "phone": "9876543203",
+      "subjects_taught": [
+        "System Software and Compiler Design"
+      ]
+    },
+    {
+      "faculty_id": "AIML-FAC-004",
+      "faculty_name": "Dr. Suresh Pillai",
+      "designation": "Associate Professor",
+      "department": "Artificial Intelligence & Machine Learning",
+      "email": "suresh.pillai@aiml.edu",
+      "phone": "9876543204",
+      "subjects_taught": [
+        "Cloud Computing",
+        "Machine Learning"
+      ]
+    },
+    {
+      "faculty_id": "AIML-FAC-005",
+      "faculty_name": "Prof. Anitha Krishnan",
+      "designation": "Assistant Professor",
+      "department": "Artificial Intelligence & Machine Learning",
+      "email": "anitha.krishnan@aiml.edu",
+      "phone": "9876543205",
+      "subjects_taught": [
+        "Deep Learning"
+      ]
+    },
+    {
+      "faculty_id": "AIML-FAC-006",
+      "faculty_name": "Dr. Deepak Sharma",
+      "designation": "Associate Professor",
+      "department": "Artificial Intelligence & Machine Learning",
+      "email": "deepak.sharma@aiml.edu",
+      "phone": "9876543206",
+      "subjects_taught": [
+        "Data Mining",
+        "System Software and Compiler Design"
+      ]
+    },
+    {
+      "faculty_id": "AIML-FAC-007",
+      "faculty_name": "Prof. Meena Sundaram",
+      "designation": "Assistant Professor",
+      "department": "Artificial Intelligence & Machine Learning",
+      "email": "meena.sundaram@aiml.edu",
+      "phone": "9876543207",
+      "subjects_taught": [
+        "Artificial Intelligence"
+      ]
+    },
+    {
+      "faculty_id": "AIML-FAC-008",
+      "faculty_name": "Dr. Arun Chakraborty",
+      "designation": "Associate Professor",
+      "department": "Artificial Intelligence & Machine Learning",
+      "email": "arun.chakraborty@aiml.edu",
+      "phone": "9876543208",
+      "subjects_taught": [
+        "Machine Learning",
+        "Data Mining"
+      ]
+    },
+    {
+      "faculty_id": "AIML-FAC-009",
+      "faculty_name": "Prof. Lavanya Mohan",
+      "designation": "Assistant Professor",
+      "department": "Artificial Intelligence & Machine Learning",
+      "email": "lavanya.mohan@aiml.edu",
+      "phone": "9876543209",
+      "subjects_taught": [
+        "Cloud Computing"
+      ]
+    },
+    {
+      "faculty_id": "AIML-FAC-010",
+      "faculty_name": "Dr. Vikram Patel",
+      "designation": "Associate Professor",
+      "department": "Artificial Intelligence & Machine Learning",
+      "email": "vikram.patel@aiml.edu",
+      "phone": "9876543210",
+      "subjects_taught": [
+        "Deep Learning",
+        "Artificial Intelligence"
+      ]
+    },
+    {
+      "faculty_id": "AIML-FAC-011",
+      "faculty_name": "Prof. Nandini Reddy",
+      "designation": "Assistant Professor",
+      "department": "Artificial Intelligence & Machine Learning",
+      "email": "nandini.reddy@aiml.edu",
+      "phone": "9876543211",
+      "subjects_taught": [
+        "System Software and Compiler Design",
+        "Cloud Computing"
+      ]
+    },
+    {
+      "faculty_id": "AIML-FAC-012",
+      "faculty_name": "Dr. Harish Balasubramanian",
+      "designation": "Associate Professor",
+      "department": "Artificial Intelligence & Machine Learning",
+      "email": "harish.bala@aiml.edu",
+      "phone": "9876543212",
+      "subjects_taught": [
+        "Machine Learning",
+        "Artificial Intelligence"
+      ]
+    }
+  ]
+}
