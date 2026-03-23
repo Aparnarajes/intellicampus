@@ -60,7 +60,6 @@ const corsOptions = {
 
 app.use(helmet()); // Production-grade header security
 app.use(cors(corsOptions));
-app.use(mongoSanitize());
 
 // Rate limiting
 app.use('/api/', globalRateLimiter);
@@ -70,8 +69,7 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 
-// Set Security HTTP Headers (Helmet)
-app.use(helmet());
+// Set Security HTTP Headers (Helmet) - Already set above
 
 // Data sanitization against NoSQL query injection
 app.use((req, res, next) => {
